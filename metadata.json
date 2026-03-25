@@ -1,0 +1,5 @@
+{
+  "name": "PouchOrder - Nicotine Pouch Sales Intermediary",
+  "description": "A simple order placement site for nicotine pouches that redirects to WhatsApp for final sale.",
+  "requestFramePermissions": []
+}
