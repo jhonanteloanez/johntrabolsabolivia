@@ -7,6 +7,15 @@ import { useState, useMemo } from 'react';
 import { ShoppingCart, Plus, Minus, Send, CheckCircle2, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
+// Importa tus imágenes aquí
+import freshMint from './assets/images/fresh-mint.jpg';
+import cucumberLime from './assets/images/cucumber-lime.jpg';
+import appleMint from './assets/images/apple-mint.jpg';
+import pineappleCoconut from './assets/images/pineapple-coconut.jpg';
+import purpleChill from './assets/images/purple-chill.jpg';
+import citrus from './assets/images/citrus.jpg';
+import logoImage from './assets/images/El match perfecto para tu bebida. Disfruta tu ZYN aquí..png';
+
 interface Flavor {
   id: string;
   name: string;
@@ -17,12 +26,12 @@ interface Flavor {
 }
 
 const FLAVORS: Flavor[] = [
-  { id: 'fresh-mint', name: 'Fresh Mint 6.5mg', description: 'Experiencia refrescante de menta suave.', color: 'bg-sky-100 border-sky-200 text-sky-900', price: 70, image: 'https://storage.googleapis.com/m-infra.appspot.com/public/res/antigravity/fresh_mint.png' },
-  { id: 'cucumber-lime', name: 'Cucumber Lime 6.5mg', description: 'Pepino fresco con un toque cítrico de lima.', color: 'bg-lime-100 border-lime-200 text-lime-900', price: 70 },
-  { id: 'apple-mint', name: 'Apple Mint 9mg', description: 'Manzana dulce combinada con menta fresca.', color: 'bg-emerald-200 border-emerald-300 text-emerald-950', price: 70, image: 'https://storage.googleapis.com/m-infra.appspot.com/public/res/antigravity/apple_mint.png' },
-  { id: 'pineapple-coconut', name: 'Pineapple Coconut 9mg', description: 'Escape tropical en cada bolsa.', color: 'bg-amber-200 border-amber-300 text-amber-950', price: 70, image: 'https://storage.googleapis.com/m-infra.appspot.com/public/res/antigravity/pineapple_coconut.png' },
-  { id: 'purple-chill', name: 'Purple Chill 9mg', description: 'Relajante mezcla de bayas silvestres.', color: 'bg-fuchsia-100 border-fuchsia-200 text-fuchsia-900', price: 70 },
-  { id: 'citrus', name: 'Citrus 9mg', description: 'Cítrico clásico, brillante y picante.', color: 'bg-orange-100 border-orange-200 text-orange-900', price: 70, image: 'https://storage.googleapis.com/m-infra.appspot.com/public/res/antigravity/citrus.png' },
+  { id: 'fresh-mint', name: 'Fresh Mint 6.5mg', description: 'Experiencia refrescante de menta suave.', color: 'bg-sky-100 border-sky-200 text-sky-900', price: 70, image: freshMint },
+  { id: 'cucumber-lime', name: 'Cucumber Lime 6.5mg', description: 'Pepino fresco con un toque cítrico de lima.', color: 'bg-lime-100 border-lime-200 text-lime-900', price: 70, image: cucumberLime },
+  { id: 'apple-mint', name: 'Apple Mint 9mg', description: 'Manzana dulce combinada con menta fresca.', color: 'bg-emerald-200 border-emerald-300 text-emerald-950', price: 70, image: appleMint },
+  { id: 'pineapple-coconut', name: 'Pineapple Coconut 9mg', description: 'Escape tropical en cada bolsa.', color: 'bg-amber-200 border-amber-300 text-amber-950', price: 70, image: pineappleCoconut },
+  { id: 'purple-chill', name: 'Purple Chill 9mg', description: 'Relajante mezcla de bayas silvestres.', color: 'bg-fuchsia-100 border-fuchsia-200 text-fuchsia-900', price: 70, image: purpleChill },
+  { id: 'citrus', name: 'Citrus 11mg', description: 'Cítrico clásico, brillante y picante.', color: 'bg-orange-100 border-orange-200 text-orange-900', price: 70, image: citrus },
 ];
 
 export default function App() {
@@ -100,7 +109,7 @@ export default function App() {
         <div className="max-w-2xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img 
-              src="input_file_0.png" 
+              src={logoImage} 
               alt="Logo John Trabolsa" 
               className="w-12 h-12 rounded-full object-cover border-2 border-stone-100 shadow-sm"
               referrerPolicy="no-referrer"
@@ -125,7 +134,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-8 pb-40">
+      <main className={`max-w-2xl mx-auto px-4 py-8 ${totalItems > 0 ? 'pb-80' : 'pb-40'}`}>
         <div className="mb-8">
           <h2 className="text-3xl font-light text-stone-800 mb-2">Selecciona tus sabores</h2>
           <p className="text-stone-500 text-sm font-medium mb-6">Arma tu pedido en segundos y confírmalo por WhatsApp.</p>
