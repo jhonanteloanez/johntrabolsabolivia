@@ -41,7 +41,7 @@ export default function App() {
 
   const rawWhatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '59177674401';
   const whatsappNumber = rawWhatsappNumber.replace(/\D/g, '');
-  const quickWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola quiero poutinear mis pouches')}`;
+  const quickWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola quiero consultar sobre los pouches John Trabolsa')}`;
 
   const updateQuantity = (id: string, delta: number) => {
     setCart(prev => {
@@ -325,7 +325,7 @@ export default function App() {
         href={quickWhatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-24 right-4 z-50 bg-emerald-600 text-white p-3 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-transform flex items-center gap-2"
+        className="fixed bottom-36 right-4 z-50 bg-emerald-600 text-white p-3 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-transform flex items-center gap-2"
       >
         <span className="sr-only">WhatsApp - ¿Tienes alguna consulta?</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
