@@ -39,6 +39,10 @@ export default function App() {
   const [isOrdering, setIsOrdering] = useState(false);
   const [isFaqOpen, setIsFaqOpen] = useState(false);
 
+  const rawWhatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '59177674401';
+  const whatsappNumber = rawWhatsappNumber.replace(/\D/g, '');
+  const quickWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hola quiero poutinear mis pouches')}`;
+
   const updateQuantity = (id: string, delta: number) => {
     setCart(prev => {
       const current = prev[id] || 0;
@@ -74,10 +78,6 @@ export default function App() {
     if (totalItems === 0) return;
     
     setIsOrdering(true);
-    
-    const rawNumber = import.meta.env.VITE_WHATSAPP_NUMBER || '1234567890';
-    // Clean number: remove all non-digits
-    const whatsappNumber = rawNumber.replace(/\D/g, '');
     
     let message = `*PEDIDO JOHN TRABOLSA*\n\n`;
     Object.entries(cart).forEach(([id, q]) => {
@@ -319,6 +319,21 @@ export default function App() {
           </p>
         </div>
       )}
+
+      {/* Botón fijo de WhatsApp */}
+      <a
+        href={quickWhatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-24 right-4 z-50 bg-emerald-600 text-white p-3 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-transform flex items-center gap-2"
+      >
+        <span className="sr-only">WhatsApp - ¿Tienes alguna consulta?</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.148-1.758-.867-2.03-.967-.272-.1-.47-.148-.668.149-.195.297-.769.967-.942 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.173.198-.297.297-.495.099-.198.05-.372-.025-.52-.075-.148-.668-1.611-.915-2.205-.242-.579-.487-.5-.668-.51l-.57-.01c-.199 0-.52.075-.792.372s-1.04 1.016-1.04 2.478 1.065 2.87 1.213 3.074 2.1 3.2 5.076 4.487c.71.306 1.26.489 1.69.626.71.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z" />
+          <path d="M12.004 2.003a9.937 9.937 0 0 0-8.946 5.008C1.617 9.221 1.5 10.408 1.5 12c0 2.383 1.016 4.597 2.789 6.268L2 22l3.859-1.01a9.908 9.908 0 0 0 6.145 1.822h.004c2.42 0 4.695-.936 6.406-2.639C21.513 16.643 22.5 14.37 22.5 12c0-5.52-4.48-9.997-10.496-9.997zm0 18.018h-.004a8.062 8.062 0 0 1-4.102-1.112l-.293-.174-2.28.598.611-2.233-.19-.355a8.025 8.025 0 0 1-1.199-4.354c0-4.418 3.584-8.003 8.002-8.003 4.42 0 8.004 3.585 8.004 8.003-.003 4.418-3.587 8.003-8.007 8.003z" />
+        </svg>
+        <span className="text-sm font-bold">¿Tienes alguna consulta?</span>
+      </a>
     </div>
   );
 }
