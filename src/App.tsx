@@ -325,7 +325,7 @@ export default function App() {
         href={quickWhatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-36 right-4 z-50 bg-emerald-600 text-white p-3 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-transform flex items-center gap-2"
+        className="fixed bottom-48 right-4 z-50 bg-emerald-600 text-white p-3 rounded-full shadow-2xl shadow-emerald-600/40 hover:scale-105 transition-transform flex items-center gap-2"
       >
         <span className="sr-only">WhatsApp - ¿Tienes alguna consulta?</span>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor">
